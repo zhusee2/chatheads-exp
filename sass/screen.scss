@@ -1,0 +1,42 @@
+body {
+  background-color: darken(white, 20%);
+  margin: 0 20px;
+}
+
+.ch-head-list {
+  font-size: 0;
+  text-align: right;
+  margin: 0;
+  position: relative;
+}
+.ch-head {
+  $size: 60px;
+
+  width: $size;
+  height: $size;
+  border-radius: $size/2;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+
+  & + & {
+    margin-left: 10px;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  &.conversation-list {
+    color: white;
+    font-size: 30px;
+    line-height: $size;
+    text-align: center;
+    border: 1px solid white;
+  }
+}
+.ch-head-link {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
