@@ -37,6 +37,7 @@
     ChatView.prototype.collapse = function() {
       this.container.addClass("collapsed");
       this.container.removeClass("expanded");
+      this.calcAndSetHeadsTransitionDelay();
       return this.resetAllHeadsPosition();
     };
 
@@ -47,6 +48,7 @@
     ChatView.prototype.expand = function() {
       this.container.addClass("expanded");
       this.container.removeClass("collapsed");
+      this.resetAllHeadsTransitionDelay();
       return this.calcAndSetHeadsPosition();
     };
 
@@ -71,6 +73,25 @@
 
       $heads = this.getHeads();
       return $heads.css("right", "");
+    };
+
+    ChatView.prototype.calcAndSetHeadsTransitionDelay = function() {
+      var $heads;
+
+      $heads = this.getHeads();
+      return $heads.each(function(index, head) {
+        var delayTimeMs;
+
+        delayTimeMs = ($heads.length - index - 1) * 35;
+        return $(head).css("transition-delay", "" + delayTimeMs + "ms");
+      });
+    };
+
+    ChatView.prototype.resetAllHeadsTransitionDelay = function() {
+      var $heads;
+
+      $heads = this.getHeads();
+      return $heads.css("transition-delay", "");
     };
 
     ChatView.prototype._collapsedViewClickHandler = function(event) {

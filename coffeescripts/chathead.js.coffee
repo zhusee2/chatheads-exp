@@ -20,6 +20,7 @@ class Chathead.ChatView
   collapse: ->
     @container.addClass("collapsed")
     @container.removeClass("expanded")
+    @calcAndSetHeadsTransitionDelay()
     @resetAllHeadsPosition()
 
   close: -> @collapse()
@@ -27,6 +28,7 @@ class Chathead.ChatView
   expand: ->
     @container.addClass("expanded")
     @container.removeClass("collapsed")
+    @resetAllHeadsTransitionDelay()
     @calcAndSetHeadsPosition()
 
   getHeads: -> @container.find(".ch-head")
@@ -41,6 +43,17 @@ class Chathead.ChatView
   resetAllHeadsPosition: ->
     $heads = @getHeads()
     $heads.css("right", "")
+
+  calcAndSetHeadsTransitionDelay: ->
+    $heads = @getHeads()
+
+    $heads.each (index, head) ->
+      delayTimeMs = ($heads.length - index - 1) * 35
+      $(head).css("transition-delay", "#{delayTimeMs}ms")
+
+  resetAllHeadsTransitionDelay: ->
+    $heads = @getHeads()
+    $heads.css("transition-delay", "")
 
 
   # Event Handlers
