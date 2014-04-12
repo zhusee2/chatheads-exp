@@ -63,7 +63,7 @@
       return $heads.each(function(index, head) {
         var rightValue;
 
-        rightValue = ($heads.length - index - 1) * 80;
+        rightValue = ($heads.length - index - 1) * 65;
         return $(head).css("right", "" + rightValue + "px");
       });
     };

@@ -37,7 +37,7 @@ class Chathead.ChatView
     $heads = @getHeads()
 
     $heads.each (index, head) ->
-      rightValue = ($heads.length - index - 1) * 80
+      rightValue = ($heads.length - index - 1) * 65
       $(head).css("right", "#{rightValue}px")
 
   resetAllHeadsPosition: ->
