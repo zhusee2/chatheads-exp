@@ -48,7 +48,7 @@ class Chathead.ChatView
     $heads = @getHeads()
 
     $heads.each (index, head) ->
-      delayTimeMs = ($heads.length - index - 1) * 35
+      delayTimeMs = ($heads.length - index - 1) * 30
       $(head).css("transition-delay", "#{delayTimeMs}ms")
 
   resetAllHeadsTransitionDelay: ->

@@ -43,5 +43,5 @@ body {
 }
 .ch-head-list.expanded .ch-head {
   top: 60px;
-  transition: top 750ms cubic-bezier(0.7, -0.3, 0, 1), right 750ms cubic-bezier(0.7, -0.3, 0, 1);
+  transition: top 750ms cubic-bezier(0.7, 0, 0, 1), right 750ms cubic-bezier(0.7, 0, 0, 1);
 }

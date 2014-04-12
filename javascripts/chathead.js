@@ -82,7 +82,7 @@
       return $heads.each(function(index, head) {
         var delayTimeMs;
 
-        delayTimeMs = ($heads.length - index - 1) * 35;
+        delayTimeMs = ($heads.length - index - 1) * 30;
         return $(head).css("transition-delay", "" + delayTimeMs + "ms");
       });
     };
