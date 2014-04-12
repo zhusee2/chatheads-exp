@@ -36,7 +36,8 @@
 
     ChatView.prototype.collapse = function() {
       this.container.addClass("collapsed");
-      return this.container.removeClass("expanded");
+      this.container.removeClass("expanded");
+      return this.resetAllHeadsPosition();
     };
 
     ChatView.prototype.close = function() {
@@ -45,7 +46,31 @@
 
     ChatView.prototype.expand = function() {
       this.container.addClass("expanded");
-      return this.container.removeClass("collapsed");
+      this.container.removeClass("collapsed");
+      return this.calcAndSetHeadsPosition();
+    };
+
+    ChatView.prototype.getHeads = function() {
+      return this.container.find(".ch-head");
+    };
+
+    ChatView.prototype.calcAndSetHeadsPosition = function() {
+      var $heads;
+
+      $heads = this.getHeads();
+      return $heads.each(function(index, head) {
+        var rightValue;
+
+        rightValue = ($heads.length - index - 1) * 80;
+        return $(head).css("right", "" + rightValue + "px");
+      });
+    };
+
+    ChatView.prototype.resetAllHeadsPosition = function() {
+      var $heads;
+
+      $heads = this.getHeads();
+      return $heads.css("right", "");
     };
 
     ChatView.prototype._collapsedViewClickHandler = function(event) {

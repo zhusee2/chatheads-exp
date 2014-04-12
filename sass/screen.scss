@@ -12,6 +12,7 @@ body {
   overflow: hidden;
   display: inline-block;
   vertical-align: top;
+  position: absolute;
   box-sizing: border-box;
 
   & + & {
@@ -37,20 +38,18 @@ body {
 }
 
 .ch-head-list {
-  font-size: 0;
-  text-align: right;
   margin: 0;
-  position: absolute;
-  top: 60px;
-  right: 20px;
 
   &.collapsed {
-    top: 260px;
-
     .ch-head {
-      position: absolute;
-      top: 0;
+      top: 260px;
       right: 0;
+    }
+  }
+
+  &.expanded {
+    .ch-head {
+      top: 60px;
     }
   }
 }

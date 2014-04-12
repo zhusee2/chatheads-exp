@@ -20,11 +20,28 @@ class Chathead.ChatView
   collapse: ->
     @container.addClass("collapsed")
     @container.removeClass("expanded")
+    @resetAllHeadsPosition()
+
   close: -> @collapse()
 
   expand: ->
     @container.addClass("expanded")
     @container.removeClass("collapsed")
+    @calcAndSetHeadsPosition()
+
+  getHeads: -> @container.find(".ch-head")
+
+  calcAndSetHeadsPosition: ->
+    $heads = @getHeads()
+
+    $heads.each (index, head) ->
+      rightValue = ($heads.length - index - 1) * 80
+      $(head).css("right", "#{rightValue}px")
+
+  resetAllHeadsPosition: ->
+    $heads = @getHeads()
+    $heads.css("right", "")
+
 
   # Event Handlers
   _collapsedViewClickHandler: (event) ->

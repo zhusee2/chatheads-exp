@@ -10,6 +10,7 @@ body {
   overflow: hidden;
   display: inline-block;
   vertical-align: top;
+  position: absolute;
   box-sizing: border-box;
 }
 .ch-head + .ch-head {
@@ -33,18 +34,12 @@ body {
 }
 
 .ch-head-list {
-  font-size: 0;
-  text-align: right;
   margin: 0;
-  position: absolute;
-  top: 60px;
-  right: 20px;
-}
-.ch-head-list.collapsed {
-  top: 260px;
 }
 .ch-head-list.collapsed .ch-head {
-  position: absolute;
-  top: 0;
+  top: 260px;
   right: 0;
+}
+.ch-head-list.expanded .ch-head {
+  top: 60px;
 }
