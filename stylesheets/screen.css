@@ -3,13 +3,6 @@ body {
   margin: 0 20px;
 }
 
-.ch-head-list {
-  font-size: 0;
-  text-align: right;
-  margin: 0;
-  position: relative;
-}
-
 .ch-head {
   width: 60px;
   height: 60px;
@@ -17,6 +10,7 @@ body {
   overflow: hidden;
   display: inline-block;
   vertical-align: top;
+  box-sizing: border-box;
 }
 .ch-head + .ch-head {
   margin-left: 10px;
@@ -36,4 +30,21 @@ body {
   color: white;
   text-decoration: none;
   display: block;
+}
+
+.ch-head-list {
+  font-size: 0;
+  text-align: right;
+  margin: 0;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+}
+.ch-head-list.collapsed {
+  top: 260px;
+}
+.ch-head-list.collapsed .ch-head {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
